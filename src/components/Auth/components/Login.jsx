@@ -23,7 +23,7 @@ export const Login = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ identity: { email }, password }),
+            body: JSON.stringify({ email, password }),
         })
         const { token, record } = await res.json()
         Cookies.set("em-token", JSON.stringify(token))
