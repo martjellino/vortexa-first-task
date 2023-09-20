@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Button } from '@/components/SharedUI/Button'
 import { Input } from '@/components/SharedUI/Input'
 import Cookies from 'js-cookie'
+import toast from 'react-hot-toast'
 
 export const Login = () => {
     const [loginData, setLoginData] = useState({
@@ -16,6 +17,7 @@ export const Login = () => {
     }
     
     const handleSubmitLogin = async () => {
+        toast.loading("try to log in...")
         const { email, password } = loginData
         const res = await fetch(`https://eventmakers-api.vercel.app/api/auth/login`, {
             method: "POST",
@@ -25,8 +27,11 @@ export const Login = () => {
             body: JSON.stringify({ email, password }),
         })
         const { token, record } = await res.json()
+        toast.remove()
+        toast.success("You are successfully login")
         Cookies.set("em-token", JSON.stringify(token))
         Cookies.set("em-record", JSON.stringify(record))
+        router.push("/dashboard")
     }
     return (
         <div>
