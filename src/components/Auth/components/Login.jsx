@@ -4,7 +4,6 @@ import { Button } from '@/components/SharedUI/Button'
 import { Input } from '@/components/SharedUI/Input'
 import Cookies from 'js-cookie'
 
-
 export const Login = () => {
     const [loginData, setLoginData] = useState({
         email: "",
