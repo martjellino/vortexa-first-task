@@ -4,8 +4,11 @@ import { Button } from '@/components/SharedUI/Button'
 import { Input } from '@/components/SharedUI/Input'
 import Cookies from 'js-cookie'
 import toast from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
+
 
 export const Login = () => {
+    const router = useRouter()
     const [loginData, setLoginData] = useState({
         email: "",
         password: ""
