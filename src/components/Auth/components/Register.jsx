@@ -1,33 +1,38 @@
+"use client";
+
 import { Button } from "@/components/SharedUI/Button";
 import { Input } from "@/components/SharedUI/Input";
 import { CheckBox } from "@/components/SharedUI/CheckBox";
+import Link from "next/link";
+import { useRegister } from "../hooks/useRegister";
 
 export const Register = () => {
-	return (
-		<>
-			<div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-				<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Create Account for Party Everyday!</h1>
-				<form action="#">
-					<Input label="Your email" type="email" name="email" placeholder="youremail@.com" />
-					<Input label="Password" type="password" name="password" placeholder="Password" />
-					<Input label="Confirm password" type="password" name="password" placeholder="Password" />
-					<div className="flex gap-1">
-						<CheckBox id="" label="I accept the " type="checkbox" />
-						<a href="#" className="block text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-							Terms and Conditions
-						</a>
-					</div>
+  const { isLoading, registerData, handleChange, handleSubmitRegister } = useRegister();
 
-					<Button>Submit</Button>
-				</form>
+  return (
+    <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+      <h1>Create Account for Party Everyday!</h1>
+      <div>
+        <Input value={registerData.name} label="Name" type="text" name="name" placeholder="Full Name" onChange={handleChange} />
+        <Input value={registerData.email} label="Your email" type="email" name="email" placeholder="your@email.com" onChange={handleChange} />
+        <Input value={registerData.password} label="Password" type="password" name="password" placeholder="Password" onChange={handleChange} />
+        <div className="flex gap-1">
+          <CheckBox id="" label="I accept the " type="checkbox" />
+          <Link href="#" className="link">
+            Terms and Conditions
+          </Link>
+        </div>
+        <Button isLoading={isLoading} onClick={handleSubmitRegister}>
+          Submit
+        </Button>
+      </div>
 
-				<label className="text-sm font-medium text-gray-900 dark:text-gray-300">
-					Already have account?
-					<a href="#" className="text-blue-600 hover:underline dark:text-blue-500">
-						Login
-					</a>
-				</label>
-			</div>
-		</>
-	);
+      <label>
+        Already have account?
+        <Link href="#" className="link">
+          Login
+        </Link>
+      </label>
+    </div>
+  );
 };
