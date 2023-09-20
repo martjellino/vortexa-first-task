@@ -45,7 +45,7 @@ export const Login = () => {
                     placeholder="Password"
                     onChange={handleChange}
                 />
-                <Button onClick={handleSubmitLogin} />
+                <Button onClick={handleSubmitLogin}>Login</Button>
             </div>
             <label
                 className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Don't have account? <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">Sign Up
