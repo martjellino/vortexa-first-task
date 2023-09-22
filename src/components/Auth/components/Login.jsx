@@ -1,4 +1,5 @@
 "use client"
+
 import { useState } from 'react'
 import { Button } from '@/components/SharedUI/Button'
 import { Input } from '@/components/SharedUI/Input'
@@ -13,27 +14,26 @@ export const Login = () => {
         email: "",
         password: ""
     })
-    
+
     const handleChange = (e) => {
         const { name, value } = e.target
         setLoginData({ ...loginData, [name]: value })
     }
-    
+
     const handleSubmitLogin = async () => {
         toast.loading("try to log in...")
         const { email, password } = loginData
-        const res = await fetch(`https://eventmakers-api.vercel.app/api/auth/login`, {
+        const res = await fetch("https://eventmakers-api.vercel.app/api/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ email, password }),
         })
-        const { token, record } = await res.json()
+        const data = await res.json()
         toast.remove()
         toast.success("You are successfully login")
-        Cookies.set("em-token", JSON.stringify(token))
-        Cookies.set("em-record", JSON.stringify(record))
+        Cookies.set("token", data.token);
         router.push("/dashboard")
     }
     return (

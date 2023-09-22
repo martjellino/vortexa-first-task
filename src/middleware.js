@@ -1,11 +1,20 @@
-import { NextResponse } from 'next/server'
- 
-// This function can be marked `async` if using `await` inside
-export function middleware(request) {
-  return NextResponse.redirect(new URL('/login', request.url))
+import { NextResponse } from "next/server";
+import * as jose from "jose";
+
+export default async function middleware(request) {
+  const token = request.cookies.get("token").value;
+  const secretKey = new TextEncoder().encode("secret1234567890");
+
+  try {
+    const isValid = await jose.jwtVerify(token, secretKey);
+    console.log(isValid);
+  } catch (error) {
+    console.log(error);
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+  return NextResponse.next();
 }
- 
-// See "Matching Paths" below to learn more
+
 export const config = {
-  matcher: '/dashboard',
-}
+  matcher: "/dashboard",
+};
