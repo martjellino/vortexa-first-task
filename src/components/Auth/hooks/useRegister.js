@@ -16,13 +16,16 @@ export const useRegister = () => {
   const handleSubmitRegister = async () => {
     setIsLoading(true);
     const { name, email, password } = registerData;
-    const res = await fetch("https://eventmakers-api.vercel.app/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, password }),
-    });
+    const res = await fetch(
+      "https://eventmakers-api.vercel.app/api/auth/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      }
+    );
     const data = await res.json();
     console.log(data);
     setRegisterData({ name: "", email: "", password: "" });

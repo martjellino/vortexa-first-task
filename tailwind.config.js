@@ -13,4 +13,7 @@ module.exports = {
 		},
 	},
 	plugins: [require("flowbite/plugin"), require("daisyui"), nextui()],
+  daisyui: {
+    themes: ["light"],
+  },
 };
