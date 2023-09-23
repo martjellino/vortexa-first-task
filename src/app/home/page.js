@@ -1,12 +1,24 @@
+import { EventCard } from "@/components/Event/components/Event.Card";
 import { Jumbotron } from "@/components/LandingPage/Jumbotron";
 import Navbar from "@/components/LandingPage/Navbar";
+
 import React from "react";
 
-export default function page() {
+async function getEvents() {
+	const res = await fetch("https://eventmakers-api.vercel.app/api/event", {
+		cache: "no-cache",
+	});
+	const data = await res.json()
+	return data;
+}
+
+export default async function Page() {
+	const { data } = await getEvents();
 	return (
 		<div>
 			<Navbar />
 			<Jumbotron />
+			<EventCard events={data} />
 		</div>
 	);
 }
