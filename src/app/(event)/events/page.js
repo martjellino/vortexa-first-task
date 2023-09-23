@@ -1,17 +1,18 @@
-import { Event } from "@/components/Event/components/Event";
+import { EventCard } from "@/components/Event/components/Event.Card";
+
 
 async function getEvents() {
-  const res = await fetch("https://eventmakers-api.vercel.app/api/event")
-
+  const res = await fetch("https://eventmakers-api.vercel.app/api/event", {
+    cache: "no-cache",
+  });
   const data = await res.json()
-  // console.log(data);
   return data;
 }
 
 
 export default async function Page() {
-  const { items } = await getEvents()
+  const { data } = await getEvents()
+  console.log(data);
 
-
-  return <Event eventData={items} />;
+  return <EventCard events={data} />;
 }
