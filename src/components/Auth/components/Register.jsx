@@ -29,7 +29,7 @@ export const Register = () => {
 
       <label>
         Already have account?
-        <Link href="#" className="link">
+        <Link href="/login" className="text-blue-600 hover:underline dark:text-blue-500 ml-1">
           Login
         </Link>
       </label>

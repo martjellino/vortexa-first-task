@@ -56,7 +56,7 @@ export const Login = () => {
                 <Button onClick={handleSubmitLogin}>Login</Button>
             </div>
             <label
-                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Don't have account? <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">Sign Up
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Don't have account? <a href="/register" className="text-blue-600 hover:underline dark:text-blue-500">Sign Up
                 </a>
             </label>
         </div>
