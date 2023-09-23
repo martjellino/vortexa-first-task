@@ -11,8 +11,8 @@ export default function Navbar() {
 					<img src="/PartyEverday.svg" className="h-8 mr-3" alt="Flowbite Logo" />
 				</a>
 				<div className="w-1/4 flex md:order-2 gap-3">
-					<Button variant="secondary">Sign up</Button>
-					<Button>Let's Party</Button>
+					<Button variant="secondary" href="/register">Sign up</Button>
+					<Button href="/login">Let's Party</Button>
 				</div>
 			</div>
 		</nav>
