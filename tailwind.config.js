@@ -16,5 +16,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("flowbite/plugin"), nextui()],
+  plugins: [
+    require("flowbite/plugin"),
+    require("daisyui"),
+    nextui()]
 };

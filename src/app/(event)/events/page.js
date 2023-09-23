@@ -12,7 +12,7 @@ async function getEvents() {
 
 export default async function Page() {
   const { data } = await getEvents()
-  console.log(data);
+  // console.log(data);
 
   return <EventCard events={data} />;
 }
