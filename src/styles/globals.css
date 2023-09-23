@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
-    @apply text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white;
-  }
-  label {
-    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
-  }
+	h1 {
+		@apply text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white;
+	}
+	label {
+		@apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
+	}
 }
 
 @layer components {
-  .link {
-    @apply block text-sm font-medium text-blue-600 hover:underline dark:text-blue-500;
-  }
-  .card {
-    @apply bg-slate-300 hover:scale-105 transition duration-300 ease-in-out p-8 rounded-3xl shadow-sm;
-  }
+	.link {
+		@apply block text-sm font-medium text-blue-600 hover:underline dark:text-blue-500;
+	}
+	.card {
+		@apply hover:scale-105 transition duration-300 ease-in-out w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow;
+	}
 }
