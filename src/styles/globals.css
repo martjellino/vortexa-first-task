@@ -15,4 +15,7 @@
   .link {
     @apply block text-sm font-medium text-blue-600 hover:underline dark:text-blue-500;
   }
+  .card {
+    @apply bg-slate-300 hover:scale-105 transition duration-300 ease-in-out p-8 rounded-3xl shadow-sm;
+  }
 }
