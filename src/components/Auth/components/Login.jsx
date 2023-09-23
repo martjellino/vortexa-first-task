@@ -32,9 +32,17 @@ export const Login = () => {
         })
         const data = await res.json()
         toast.remove()
-        toast.success("You are successfully login")
-        Cookies.set("token", data.token);
-        router.push("/dashboard")
+        if (res.ok) {
+            // Login successful, set the token and redirect to /dashboard
+            Cookies.set("token", data.token);
+            router.push("/dashboard");
+        } else {
+            // Handle login failure here (e.g., display an error message)
+            toast.error("Login failed. Please check your credentials.");
+        }
+        // toast.success("You are successfully login")
+        // Cookies.set("token", data.token);
+        // router.push("/dashboard")
     }
     return (
         <div>

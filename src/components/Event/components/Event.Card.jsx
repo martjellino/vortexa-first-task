@@ -3,6 +3,7 @@
 import { Button } from "@/components/SharedUI/Button";
 import Link from "next/link";
 import React from "react";
+import { EventJoin } from "./Event.Join";
 
 export const EventCard = ({ events }) => {
 	return (

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Button } from "../SharedUI/Button";
+import Link from 'next/link'
 
 export default function Navbar() {
 	return (
@@ -11,8 +12,12 @@ export default function Navbar() {
 					<img src="/PartyEverday.svg" className="h-8 mr-3" alt="Flowbite Logo" />
 				</a>
 				<div className="w-1/4 flex md:order-2 gap-3">
-					<Button variant="secondary" href="/register">Sign up</Button>
-					<Button href="/login">Let's Party</Button>
+				<Link href="/register">
+				<Button variant="secondary">Sign up</Button>
+				</Link>
+				<Link href="/login">
+				<Button>Let's Party</Button>
+				</Link>
 				</div>
 			</div>
 		</nav>
